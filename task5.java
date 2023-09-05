@@ -17,7 +17,6 @@ class Contact {
         this.emailAddress = emailAddress;
     }
 
-    // Getters
     public String getName() {
         return name;
     }
@@ -30,7 +29,6 @@ class Contact {
         return emailAddress;
     }
 
-    // Setters
     public void setName(String name) {
         this.name = name;
     }
@@ -79,10 +77,10 @@ class AddressBook {
 public class task5 {
     private AddressBook addressBook = new AddressBook();
     private JList<Contact> contactList;
-    private String dataFilePath = "addressbook.txt"; // Text file to store data
+    private String dataFilePath = "addressbook.txt"; 
 
     public task5() {
-        loadContacts(); // Load contacts from file when the program starts
+        loadContacts(); 
 
         JFrame frame = new JFrame("Address Book System");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -147,7 +145,7 @@ public class task5 {
             String emailAddress = JOptionPane.showInputDialog("Enter email address:");
             Contact contact = new Contact(name, phoneNumber, emailAddress);
             addressBook.addContact(contact);
-            saveContacts(); // Save contacts to the file after adding
+            saveContacts(); 
         }
     }
 
@@ -156,7 +154,7 @@ public class task5 {
         if (selectedIndex != -1) {
             Contact selectedContact = contactList.getSelectedValue();
             addressBook.removeContact(selectedContact);
-            saveContacts(); // Save contacts to the file after removing
+            saveContacts(); 
         }
     }
 
@@ -181,14 +179,13 @@ public class task5 {
                 String newPhoneNumber = JOptionPane.showInputDialog("Enter new phone number:", selectedContact.getPhoneNumber());
                 String newEmailAddress = JOptionPane.showInputDialog("Enter new email address:", selectedContact.getEmailAddress());
 
-                // Update the selected contact with the new information
+                
                 selectedContact.setName(newName);
                 selectedContact.setPhoneNumber(newPhoneNumber);
                 selectedContact.setEmailAddress(newEmailAddress);
 
-                // Refresh the JList to reflect the changes
                 contactList.repaint();
-                saveContacts(); // Save contacts to the file after editing
+                saveContacts(); 
             }
         }
     }
@@ -223,7 +220,6 @@ public class task5 {
                 addressBook.addContact(contact);
             }
         } catch (IOException e) {
-            // Handle file not found or other exceptions
         }
     }
 
